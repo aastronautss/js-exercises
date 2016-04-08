@@ -24,16 +24,25 @@ $(function() {
   var $tabs = $(".tab");
   var $articles = $("article");
 
-  $tabs.eq(0).addClass('active');
-  $articles.hide().eq(0).show();
+  var tab_interface = {
+    bind: function() {
+      $tabs.on("click", function(e) {
+        e.preventDefault();
+        var $target = $(e.target);
+        var idx = $target.closest("li").index();
 
-  $tabs.on("click", function(e) {
-    e.preventDefault();
-    var $target = $(e.target);
-    var idx = $target.closest("li").index();
+        $(".active").removeClass('active');
+        $target.addClass('active');
+        $articles.hide().eq(idx).show();
+      });
+    },
 
-    $(".active").removeClass('active');
-    $target.addClass('active');
-    $articles.hide().eq(idx).show();
-  });
+    init: function() {
+      $tabs.eq(0).addClass('active');
+      $articles.hide().eq(0).show();
+      this.bind();
+    }
+  }
+
+  tab_interface.init();
 });
