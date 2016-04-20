@@ -1,0 +1,24 @@
+#slideshow {
+  position: relative;
+  height: 650px;
+}
+
+#slideshow figure {
+  position: absolute;
+}
+
+figure + figure {
+  display: none;
+}
+
+#thumbnails {
+  display: block;
+}
+
+#thumbnails img {
+  width: 100px;
+}
+
+li {
+  display: inline-block;
+}
