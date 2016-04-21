@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Filter</title>
+    <meta charset="UTF-8" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <ul>
+
+      </ul>
+
+      <form action="" method="get">
+        <fieldset>
+          <ul>
+
+          </ul>
+        </fieldset>
+      </form>
+    </main>
+
+    <script type="text/x-handlebars" id="category_list">
+      {{#each categories}}
+        {{> category_template}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" id="category_template">
+      <li><label>
+        <input type="checkbox" value='{{this}}' checked>{{this}}
+      </label></li>
+    </script>
+
+    <script type="text/x-handlebars" id="item_list">
+      {{#each items}}
+        {{> item_template}}
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" id="item_template">
+      <li data-id='{{"id"}}'>{{"name"}}</li>
+    </script>
+  </body>
+</html>
